@@ -1,6 +1,5 @@
 import express from "express";
 const sVoucherRoute = express.Router();
-import api_svoucher_control from "../controller/api_svoucher_control.js";
 import api_reporting_control from "../controller/api_reporting_control.js";
 import api_sales_report_control from "../controller/api_sales_report_control.js";
 import api_forecast_control from "../controller/api_forecast_control.js";
@@ -11,8 +10,5 @@ sVoucherRoute.post("/getSalesReportByCustomer", api_sales_report_control.getSale
 sVoucherRoute.post("/getSalesForecast", api_forecast_control.getSalesForecast)
 
 sVoucherRoute.post("/getData", api_pos_control.get_data)
-sVoucherRoute.post("/getPOS", api_pos_control.getPOS)
-
-
 
 export default sVoucherRoute

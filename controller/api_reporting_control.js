@@ -17,7 +17,7 @@ class api_reporting_control {
                 }
             )
             if (result.length == 0) {
-                resp.json({
+                return resp.json({
                     status: "0",
                     message: `Data does not exist, ${result.length} records`
                 })
