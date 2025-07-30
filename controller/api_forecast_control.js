@@ -14,6 +14,12 @@ class api_forecast_control {
                     type: QueryTypes.SELECT
                 }
             )
+            if (result.length == 0) {
+                return resp.json({
+                    status: "0",
+                    message: `Data does not exist, ${result.length} records`
+                })
+            }
             this.report(req, resp, result)
         } catch (error) {
             resp.json({

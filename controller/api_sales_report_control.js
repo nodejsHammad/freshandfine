@@ -14,7 +14,7 @@ class api_sales_report_control {
                 type: QueryTypes.SELECT
             })
             if (result.length == 0) {
-                resp.json({
+                return resp.json({
                     status: "0",
                     message: `Data does not exist, ${result.length} records`
                 })
