@@ -9,6 +9,6 @@ sVoucherRoute.post("/getCustomerInvoice", api_reporting_control.getCustomerInvoi
 sVoucherRoute.post("/getSalesReportByCustomer", api_sales_report_control.getSalesReportByCustomer)
 sVoucherRoute.post("/getSalesForecast", api_forecast_control.getSalesForecast)
 
-sVoucherRoute.post("/getData", api_pos_control.get_data)
+sVoucherRoute.post("/getPOS", api_pos_control.getPOS)
 
 export default sVoucherRoute
