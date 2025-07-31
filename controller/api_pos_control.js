@@ -3,7 +3,7 @@ dotenv.config()
 import { QueryTypes } from "sequelize";
 import sequelize from "../config/connect_db.js";
 import jsreportClient from 'jsreport-client';
- 
+
 class api_pos_control {
     static getPOS = async (req, resp) => {
         try {
@@ -26,7 +26,9 @@ class api_pos_control {
     CategoryTotal.Total AS SaleTotal,
     CategoryTotal.Quantity AS Quantity,
     CASE WHEN CategoryTotal.Total != 0 AND allData.Total != 0 THEN allData.Total / CategoryTotal.Total * 100 ELSE 0
-END AS SaleContribution
+END AS SaleContribution,
+    CASE WHEN allData.CostTotal != 0 AND allData.Total != 0 THEN (allData.Total - allData.CostTotal) / allData.CostTotal * 100 ELSE 0
+END AS ProfitPercentage
 FROM
     (
     SELECT
@@ -114,7 +116,7 @@ ORDER BY
             }
             )
             if (result.length == 0) {
-               return resp.json({
+                return resp.json({
                     status: "0",
                     message: `Data does not exist, ${result.length} records`
                 })
