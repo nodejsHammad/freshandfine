@@ -8,7 +8,6 @@ import api_pos_control from "../controller/api_pos_control.js";
 sVoucherRoute.post("/getCustomerInvoice", api_reporting_control.getCustomerInvoice)
 sVoucherRoute.post("/getSalesReportByCustomer", api_sales_report_control.getSalesReportByCustomer)
 sVoucherRoute.post("/getSalesForecast", api_forecast_control.getSalesForecast)
-
 sVoucherRoute.post("/getPOS", api_pos_control.getPOS)
 
 export default sVoucherRoute
